@@ -24,8 +24,8 @@ install_github("rOpenGov/recalls")
 
 ### Tracking Vehicle Recalls by Make and Year ###
 
-```{r vehicles, eval=TRUE, echo=TRUE, fig.path='inst/figure'}
-require('recalls')
+```{r vehicles, eval=TRUE, echo=TRUE, fig.path='inst/figure/'}
+library('recalls')
 dat <- expand.grid(year = 1990:2010,
             make = c('ford','gmc','chrysler','honda','toyota'),
             stringsAsFactors=FALSE)
@@ -36,18 +36,16 @@ sapply(1:nrow(dat), function(d) {
 })
 
 plot(NA, xlim=c(1990, 2010), ylim=c(0,max(dat$count)), xlab='Year', ylab='Recalls')
-mapply(function(z,col)
+x <- mapply(function(z,col)
     lines(count ~ year, data=dat, subset=make==z, col=col, lwd=2),
     unique(dat$make), rainbow(5))
 legend('topleft', legend=unique(dat$make), fill=rainbow(5))
 ```
 
-![](inst/figure/)
-
 
 ### Are consumer recalls increasing or decreasing? ##
 
-```{r recalls, eval=TRUE, echo=TRUE, fig.path='inst/figure'}
+```{r recalls, eval=TRUE, echo=TRUE, fig.path='inst/figure/'}
 require('recalls')
 consum <- data.frame(start = paste(1990:2010,'-01-01',sep=''),
                     end = paste(1990:2010,'-12-31',sep=''),

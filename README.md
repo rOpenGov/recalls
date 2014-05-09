@@ -26,20 +26,7 @@ install_github("rOpenGov/recalls")
 
 
 ```r
-require("recalls")
-```
-
-```
-## Loading required package: recalls
-## 
-## Attaching package: 'recalls'
-## 
-## The following object is masked _by_ '.GlobalEnv':
-## 
-##     recalls
-```
-
-```r
+library("recalls")
 dat <- expand.grid(year = 1990:2010, make = c("ford", "gmc", "chrysler", "honda", 
     "toyota"), stringsAsFactors = FALSE)
 dat$count <- sapply(1:nrow(dat), function(d) {
@@ -48,35 +35,13 @@ dat$count <- sapply(1:nrow(dat), function(d) {
 })
 
 plot(NA, xlim = c(1990, 2010), ylim = c(0, max(dat$count)), xlab = "Year", ylab = "Recalls")
-mapply(function(z, col) lines(count ~ year, data = dat, subset = make == z, 
-    col = col, lwd = 2), unique(dat$make), rainbow(5))
-```
-
-```
-## $ford
-## NULL
-## 
-## $gmc
-## NULL
-## 
-## $chrysler
-## NULL
-## 
-## $honda
-## NULL
-## 
-## $toyota
-## NULL
-```
-
-```r
+x <- mapply(function(z, col) lines(count ~ year, data = dat, subset = make == 
+    z, col = col, lwd = 2), unique(dat$make), rainbow(5))
 legend("topleft", legend = unique(dat$make), fill = rainbow(5))
 ```
 
-![plot of chunk vehicles](inst/figurevehicles.png) 
+![plot of chunk vehicles](inst/figure/vehicles.png) 
 
-
-![](inst/figure/)
 
 
 ### Are consumer recalls increasing or decreasing? ##
@@ -96,5 +61,5 @@ with(consum, plot(count, type = "l", lwd = 2, ylim = c(0, max(consum$count)),
 axis(1, 1:21, 1990:2010)
 ```
 
-![plot of chunk recalls](inst/figurerecalls.png) 
+![plot of chunk recalls](inst/figure/recalls.png) 
 
