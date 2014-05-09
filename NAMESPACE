@@ -1,0 +1,4 @@
+export(recalls)
+
+importFrom(RCurl, curlPerform, basicTextGatherer, curlEscape)
+importFrom(RJSONIO, fromJSON)

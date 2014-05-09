@@ -1,0 +1,11 @@
+Package: recalls
+Version: 0.1.0
+Date: 2014-05-09
+Title: Access U.S. Federal Government Recall Data
+Author: Thomas J. Leeper
+Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
+Imports: RCurl, RJSONIO
+Description: recalls provides access to U.S. Federal Government recall data on drugs and food from the Food and Drug Administration, car safety from the National Highway Traffic Safety Administration, and product safety recalls from the Consumer Product Safety Commission.
+License: GPL-2
+URL: https://github.com/rOpenGov/recalls
+BugReports: https://github.com/rOpenGov/recalls/issues
