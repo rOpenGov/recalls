@@ -11,5 +11,5 @@ citHeader("To cite package 'recalls' in publications use:")
 		  textVersion =
 		  paste("Thomas J. Leeper (",
 				year,
-				"). recalls: R Client for Washington Post APIs. ",
+				"). recalls: Access U.S. Federal Government Recall Data. ",
 				vers, ".", sep=""))
